@@ -65,3 +65,6 @@ shrinkwrap.yaml
 
 # dist
 /dist
+
+#mac
+.DS_Store
