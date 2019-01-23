@@ -1,0 +1,36 @@
+{
+  "name": "jsherlock-cli",
+  "version": "0.0.1",
+  "description": "Find user name across social networks",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "test": "echo \"jsherlock-cli\" && exit 0",
+    "build": "tsc"
+  },
+  "bin": {
+    "jsherlock": "dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AungMyoKyaw/jsherlock-cli.git"
+  },
+  "keywords": [
+    "reconnaissance",
+    "information-gathering"
+  ],
+  "author": "Aung Myo Kyaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AungMyoKyaw/jsherlock-cli/issues"
+  },
+  "homepage": "https://github.com/AungMyoKyaw/jsherlock-cli#readme",
+  "devDependencies": {
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "@types/meow": "^5.0.0",
+    "chalk": "^2.4.2",
+    "jsherlock": "^0.0.3",
+    "meow": "^5.0.0"
+  }
+}
