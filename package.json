@@ -8,7 +8,7 @@
     "build": "tsc"
   },
   "bin": {
-    "jsherlock": "dist/index.js"
+    "jsherlock": "./dist/cli.js"
   },
   "repository": {
     "type": "git",
