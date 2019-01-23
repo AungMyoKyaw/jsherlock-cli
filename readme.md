@@ -8,6 +8,10 @@
 [![contributions welcome][contri]][contri-url]
 [![License: MIT][license]][license-url]
 
+---
+
+<img src="./assets/screenshot.gif" alt="jsherlock-cli" align="right">
+
 ## Install
 
 ```shell
