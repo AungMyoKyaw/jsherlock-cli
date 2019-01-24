@@ -8,9 +8,7 @@
 [![contributions welcome][contri]][contri-url]
 [![License: MIT][license]][license-url]
 
----
-
-<img src="./assets/screenshot.gif" alt="jsherlock-cli" align="right">
+[![asciicast](https://asciinema.org/a/223172.svg)](https://asciinema.org/a/223172)
 
 ## Install
 
