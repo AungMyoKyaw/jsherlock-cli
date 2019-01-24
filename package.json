@@ -4,7 +4,7 @@
   "description": "Find user name across social networks",
   "main": "dist/src/index.js",
   "scripts": {
-    "test": "echo \"jsherlock-cli\" && exit 0",
+    "test": "ts-node src/cli.ts test",
     "build": "tsc"
   },
   "bin": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/AungMyoKyaw/jsherlock-cli#readme",
   "devDependencies": {
+    "ts-node": "^8.0.1",
     "typescript": "^3.2.4"
   },
   "dependencies": {
