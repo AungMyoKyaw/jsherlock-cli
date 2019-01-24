@@ -18,5 +18,3 @@ if (!userName) {
 }
 
 checker(userName);
-// console.log(cli);
-// foo(cli.input[0], cli.flags);

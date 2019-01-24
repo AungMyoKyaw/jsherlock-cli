@@ -29,7 +29,6 @@ const checker = (userName: string) => {
         chalk`[{redBright.bold ${sign}}] {greenBright.bold ${siteName}:} {yellowBright.bold Not Found}`
       );
     }
-    // console.log(sign, ' ', siteName, uri);
   });
 };
 
