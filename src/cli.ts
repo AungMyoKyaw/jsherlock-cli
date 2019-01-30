@@ -14,7 +14,7 @@ const cli = meow(`
 const userName = cli.input[0];
 
 if (!userName) {
-  cli.showHelp();
+  cli.showHelp(0);
 }
 
 checker(userName);
