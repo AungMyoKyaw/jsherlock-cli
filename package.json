@@ -5,6 +5,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "test": "mocha -r ts-node/register ./test/*.spec.ts -t 6e4",
+    "demo": "ts-node src/cli.ts zuck --export-csv='~/Desktop/jsherlock.csv'",
     "build": "tsc"
   },
   "bin": {
@@ -34,8 +35,10 @@
   },
   "dependencies": {
     "@types/meow": "^5.0.0",
+    "@types/ora": "^3.0.0",
     "chalk": "^2.4.2",
     "jsherlock": "0.0.3",
-    "meow": "^5.0.0"
+    "meow": "^5.0.0",
+    "ora": "^3.0.0"
   }
 }

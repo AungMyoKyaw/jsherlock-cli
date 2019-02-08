@@ -29,4 +29,17 @@ describe('JSHERLOCK-CLI', () => {
       }
     })();
   });
+
+  it('SHOULD EXPORT CSV', done => {
+    (async () => {
+      try {
+        const { stdout } = await execa.shell(
+          `ts-node ${cliPath} zuck --export-csv='~/Desktop/jsherlock.csv'`
+        );
+        done();
+      } catch (e) {
+        done(e);
+      }
+    })();
+  });
 });
