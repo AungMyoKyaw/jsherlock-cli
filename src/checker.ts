@@ -65,27 +65,39 @@ const banner = (): void => {
 };
 
 const display = (status: Istatus): void => {
-  const sign = status.exist ? '+' : '-';
-  const { siteName, uri } = status;
+  const { siteName } = status;
+  const sign = status.exist == true ? '+' : '-';
+  let { uri } = status;
+  uri = status.exist == true ? `white ${uri}` : `yellowBright.bold Not Found`;
 
-  if (status.exist) {
-    log(
-      chalk`[{greenBright.bold ${sign}}] {greenBright.bold ${siteName}:} ${uri}`
-    );
-  } else {
-    log(
-      chalk`[{redBright.bold ${sign}}] {greenBright.bold ${siteName}:} {yellowBright.bold Not Found}`
-    );
-  }
+  log(
+    chalk`[{greenBright.bold ${sign}}] {greenBright.bold ${siteName}:} {${uri}}`
+  );
 };
 
 const exporter = async (status: Istatus[], path: string) => {
-  const fields = ['userName', 'siteName', 'uri', 'exist'];
+  status = sorter.availability(status);
+  const fields = ['userName', 'siteName', 'exist', 'uri'];
   const opts = { fields };
   try {
     const csv = json2csv(status, opts);
     fs.writeFileSync(path, csv, 'utf8');
-  } catch (err) {}
+  } catch (err) {
+    throw err;
+  }
 };
+
+class sorter {
+  static availability(status: Istatus[]): Istatus[] {
+    status = status.sort((prev, cur) => {
+      const prevStatus = prev.exist ? 0 : 1;
+      const curStatus = cur.exist ? 0 : 1;
+      //true come first
+      return prevStatus - curStatus;
+    });
+
+    return status;
+  }
+}
 
 export { checker };
