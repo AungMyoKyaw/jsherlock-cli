@@ -8,13 +8,13 @@
 [![contributions welcome][contri]][contri-url]
 [![License: MIT][license]][license-url]
 
+<a href="https://asciinema.org/a/226330" target="_blank"><img src="https://asciinema.org/a/226330.svg" width="400" height="200" align="right" style="padding-top:40px"/></a>
+
 ## Install
 
 ```shell
 npm install -g jsherlock-cli
 ```
-
-[![asciicast](https://asciinema.org/a/223172.svg)](https://asciinema.org/a/223172)
 
 ## Usage
 
