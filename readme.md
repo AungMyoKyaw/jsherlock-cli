@@ -19,13 +19,15 @@ npm install -g jsherlock-cli
 ## Usage
 
 ```shell
-$ jsherlock --help
+Usage
+  $ jsherlock <input>
 
-  Usage
-    $ jsherlock <input>
+Options
+  --export-csv='jsherlock.csv'
 
-  Examples
-    $ jsherlock zuck
+Examples
+  $ jsherlock zuck
+  $ jsherlock zuck --export-csv='jsherlock.csv'
 ```
 
 ## Related

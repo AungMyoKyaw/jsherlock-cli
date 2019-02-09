@@ -1,7 +1,9 @@
 import jsherlock from 'jsherlock';
+import * as fs from 'fs';
 
 import chalk from 'chalk';
 import ora from 'ora';
+import { parse as json2csv } from 'json2csv';
 
 const log = console.log;
 
@@ -18,13 +20,8 @@ const checker = async (userName: string, path?: string) => {
   const sherlockChecker = new jsherlock(userName);
   const sites = jsherlock.sites();
 
-  log(chalk.greenBright.bold`
-   __  ____  _  _  ____  ____  __     __    ___  __ _
- _(  )/ ___)/ )( \\(  __)(  _ \\(  )   /  \\  / __)(  / )
-/ \\) \\\\___ \\) __ ( ) _)  )   // (_/\\(  O )( (__  )  (
-\\____/(____/\\_)(_/(____)(__\\_)\\____/ \\__/  \\___)(__\\_)
-
-`);
+  //banner
+  banner();
 
   //start spinner
   if (path) {
@@ -35,22 +32,35 @@ const checker = async (userName: string, path?: string) => {
     }).start();
   }
 
-  const checking = await Promise.all(
+  const status: Istatus[] = await Promise.all(
     sites.map(async site => {
-      const status: Istatus = await sherlockChecker.checkFor(site);
+      const siteStatus: Istatus = await sherlockChecker.checkFor(site);
       if (path) {
-        exporter(status, path);
+        //spinner
+        spinner.text = `Checking for ${siteStatus.siteName}`;
       } else {
-        display(status);
+        display(siteStatus);
       }
-      return status;
+      return siteStatus;
     })
   );
 
-  //stop spinner
+  //stop spinner & export to csv
   if (path) {
-    spinner.stop();
+    await exporter(status, path);
+    spinner.succeed(`Exported to => ${path}`);
   }
+};
+
+const banner = (): void => {
+  //jsherlock logo
+  log(chalk.greenBright.bold`
+   __  ____  _  _  ____  ____  __     __    ___  __ _
+ _(  )/ ___)/ )( \\(  __)(  _ \\(  )   /  \\  / __)(  / )
+/ \\) \\\\___ \\) __ ( ) _)  )   // (_/\\(  O )( (__  )  (
+\\____/(____/\\_)(_/(____)(__\\_)\\____/ \\__/  \\___)(__\\_)
+
+`);
 };
 
 const display = (status: Istatus): void => {
@@ -68,10 +78,13 @@ const display = (status: Istatus): void => {
   }
 };
 
-const exporter = (status: Istatus, path: string): void => {
-  const { siteName, uri } = status;
-  //spinner
-  spinner.text = `Checking for ${siteName}`;
+const exporter = async (status: Istatus[], path: string) => {
+  const fields = ['userName', 'siteName', 'uri', 'exist'];
+  const opts = { fields };
+  try {
+    const csv = json2csv(status, opts);
+    fs.writeFileSync(path, csv, 'utf8');
+  } catch (err) {}
 };
 
 export { checker };
