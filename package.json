@@ -1,6 +1,6 @@
 {
   "name": "jsherlock-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Find user name across social networks",
   "main": "dist/src/index.js",
   "scripts": {
