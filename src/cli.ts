@@ -31,4 +31,10 @@ if (!userName) {
   cli.showHelp(0);
 }
 
-checker(userName, exportCsv);
+(async () => {
+  try {
+    await checker(userName, exportCsv);
+  } catch (e) {
+    process.exit(1);
+  }
+})();
