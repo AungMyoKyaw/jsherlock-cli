@@ -9,7 +9,7 @@ const cli = meow(
 	  $ jsherlock <input>
 
   Options
-    --export-csv='jsherlock.csv'
+    --export-csv
 
 	Examples
 	  $ jsherlock zuck
