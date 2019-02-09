@@ -65,6 +65,7 @@ shrinkwrap.yaml
 
 # dist
 /dist
+*.csv
 
 #mac
 .DS_Store
