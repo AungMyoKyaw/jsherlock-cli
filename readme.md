@@ -3,12 +3,11 @@
 > Find usernames across social networks
 
 [![Build Status][travis]][travis-url]
+[![install size][package-size]][package-size-url]
 [![code style: prettier][prettier]][prettier-url]
 [![npm][npm-download]][npm-dl-url]
 [![contributions welcome][contri]][contri-url]
 [![License: MIT][license]][license-url]
-
-<a href="https://asciinema.org/a/226330" target="_blank"><img src="https://asciinema.org/a/226330.svg" width="400" height="200" align="right" style="padding-top:40px"/></a>
 
 ## Install
 
@@ -29,6 +28,10 @@ Examples
   $ jsherlock zuck
   $ jsherlock zuck --export-csv='jsherlock.csv'
 ```
+
+### asciinema ▶️
+
+[![asciicast](https://asciinema.org/a/226330.svg)](https://asciinema.org/a/226330)
 
 ## Related
 
@@ -54,3 +57,5 @@ MIT © [Aung Myo Kyaw](https://github.com/AungMyoKyaw)
 [license-url]: https://opensource.org/licenses/MIT
 [prettier]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [prettier-url]: https://github.com/prettier/prettier
+[package-size]: https://packagephobia.now.sh/badge?p=jsherlock-cli@0.0.3
+[package-size-url]: https://packagephobia.now.sh/result?p=jsherlock@0.0.3
