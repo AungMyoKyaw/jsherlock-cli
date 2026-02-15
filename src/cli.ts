@@ -9,7 +9,7 @@ const cli = meow(
 	  $ jsherlock <input>
 
   Options
-    --export-csv
+    --export-csv    Export results to a CSV file
 
 	Examples
 	  $ jsherlock zuck
@@ -31,10 +31,12 @@ if (!userName) {
   cli.showHelp(0);
 }
 
-(async () => {
+(async (): Promise<void> => {
   try {
     await checker(userName, exportCsv);
-  } catch (e) {
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    console.error(`Error: ${errorMessage}`);
     process.exit(1);
   }
 })();
