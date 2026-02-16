@@ -1,13 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["ES2015", "DOM"],
+    "target": "ES2019",
+    "lib": ["ES2019"],
     "module": "commonjs",
     "outDir": "dist",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
-  }
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
